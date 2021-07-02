@@ -1,0 +1,120 @@
+.vertical-menu{
+    background-color: #40189D !important;
+}
+
+body {
+    background-color: #171523 !important ;
+    font-family: "Poppins", sans-serif !important;
+}
+.navbar-header{
+    background: #28253b !important
+}
+.mm-active,.mm-active .active i{
+    color: #fff !important;
+}
+#sidebar-menu ul li a:hover,#sidebar-menu ul li a:active
+    {
+    color: #fff !important;
+}
+#sidebar-menu ul li a {
+    color: #fff !important;
+}
+.logo{
+    color:#fff !important
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #28253b;
+    background-clip: border-box;
+    border: 0 solid #28253b;
+    border-radius: 0.25rem;
+}
+
+.footer{
+    background-color: #28253b !important;
+}
+.page-content {
+    padding: calc(40px + 24px) calc(24px / 2) 60px calc(24px / 2);
+}
+
+.table th, .table td {
+    padding: 1.5rem;
+    vertical-align: top;
+    border-top: 1px solid #28253b;
+    color: #000;
+    text-align: center;
+
+    font-weight:700
+}
+.table thead th {
+    border-bottom: 2px solid #28253b;
+    color: #fff;
+    text-align: center;
+
+}
+.over{
+    background: #58c4ff;
+    border-radius: 25px;
+    display: inline-block;
+    width: 8rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.under{
+    background: #ff92bd;
+    border-radius: 25px;
+    display: inline-block;
+    width: 8rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.over-head{
+    color:#fff !important;
+
+}
+
+.under-head{
+    color:#fff !important;
+
+}
+
+.card-title {
+    font-size: 17px;
+    margin: 0 0 0 0;
+    font-weight: 500;
+    background: #1BD084;
+    color: #171523;
+}
+.btcPrice
+{
+    background: #46419e;
+    color: #fff !important;
+    padding: 10px;
+
+}
+
+.vertical-menu {
+    background-color: #28253b !important;
+    border: 2px solid #171523;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+
+}
+@media (max-width: 600px) {
+.card-title {
+    font-size: 14px;
+
+}
+}
