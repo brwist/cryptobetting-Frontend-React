@@ -1,0 +1,88 @@
+import React from "react";
+import { connect } from "react-redux";
+import { Row, Col, Card, CardBody, Container, Table } from "reactstrap";
+import {numberWithCommas} from "../../utils/numberWithCommas"
+import {calcTimeDifference} from "../../utils/calcTimeDifference"
+import {expiryTimeToLocaleString} from "../../utils/expiryTimeToLocaleString"
+
+const ResponsiveTable = (props) => {
+    let expiries;
+    if(props.tableData.data.expiries!==undefined)
+    expiries= props.tableData.data.expiries;
+    else
+    expiries=[]
+        return (
+            <React.Fragment>
+                <div className="page-content">
+                    <Container fluid>
+                        <Row>
+                        {
+                            expiries.length!==0 ?  
+                            expiries.map((info, index) => (
+                                <Col xs={12} key={index}>
+                                <Card>
+                                    <CardBody>
+                                    <h4 className="card-title text-center py-3 h2">Expiry Time : {expiryTimeToLocaleString(info.expiry*1000)}{" "}<span className="float-right mr-2">({calcTimeDifference(Math.abs(new Date(info.expiry*1000) - new Date()))} to expiration){" "}{" "}</span></h4>
+                                        <div className="table-rep-plugin">
+                                            <div className="table-responsive mb-0" data-pattern="priority-columns">
+                                                <Table id="tech-companies-1" responsive>
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            {info.probabilities.map((proba, i) => (
+                                                                <React.Fragment key={i}>
+                                                                    <th>{numberWithCommas(proba.strike)}</th>
+                                                                </React.Fragment>
+                                                            ))}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><span className="over-head">OVER</span></td>
+                                                            {info.probabilities.map((proba, i) => (
+                                                                <React.Fragment key={i+"over"}>
+                                                                <td><span className="over ">{((1/(proba.over))*(1-props.tableData.data.rake_over)).toFixed(2)}</span></td>
+                                                                </React.Fragment>
+                                                            ))}
+                                                        </tr>
+                                                        <tr>
+                                                        <td><span className="under-head ">UNDER</span></td>
+                                                            {info.probabilities.map((proba, i) => (
+                                                                 <React.Fragment key={i+"under"}>
+                                                                {
+                                                                    ((1/(proba.under))*(1-props.tableData.data.rake_under)).toFixed(2)<1
+                                                                    ?
+                                                                    <td><span className="under">1</span></td>
+                                                                    :
+                                                                    ((1/(proba.under))*(1-props.tableData.data.rake_under)).toFixed(2)>99
+                                                                    ?
+                                                                    <td><span className="under">99</span></td>
+                                                                    :
+                                                                    <td><span className="under">{((1/(proba.under))*(1-props.tableData.data.rake_under)).toFixed(2)}</span></td>
+                                                                }
+                                                                 </React.Fragment>
+                                                            ))}
+                                                        </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                            )): 
+                            <h4>Loading data ...........</h4>
+                            }
+                             
+                        </Row>
+                    </Container>
+                </div>
+            </React.Fragment>
+        );
+    
+}
+
+const mapStateToProps = (store) => ({
+    tableData: store.tableData,
+  });
+export default connect(mapStateToProps, {})(ResponsiveTable);
