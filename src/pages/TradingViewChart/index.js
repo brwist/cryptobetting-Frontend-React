@@ -9,7 +9,7 @@ const TradingViewChart =() => {
         script.innerHTML = new window.TradingView.widget(
           {
             "width": "100%",
-            "height": "30rem",
+            "height": "40rem",
             "symbol": 'BINANCE:BTCUSDT',
             "interval": "15",
             "timezone": "America/New_York",

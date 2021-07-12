@@ -15,8 +15,8 @@ import DashboardWithRake from "../pages/DashboardWithRake/index";
 import TradingViewChart from "../pages/TradingViewChart/index"
 const authProtectedRoutes = [
 	//Kanban Board
-	{ path: "/dashboard", component: Dashboard },
-	{ path: "/dashboard-decimal-odds", component: DashboardDecimalOdds },
+	// { path: "/dashboard", component: Dashboard },
+	// { path: "/dashboard-decimal-odds", component: DashboardDecimalOdds },
 	{ path: "/dashboard-with-rake", component: DashboardWithRake },
 	{ path: "/chart", component: TradingViewChart },
 
