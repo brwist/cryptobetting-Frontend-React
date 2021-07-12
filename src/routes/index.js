@@ -21,7 +21,7 @@ const authProtectedRoutes = [
 	{ path: "/chart", component: TradingViewChart },
 
 	// this route should be at the end of all other routes
-	{ path: "/", exact: true, component: () => <Redirect to="/dashboard" /> }
+	{ path: "/", exact: true, component: () => <Redirect to="/dashboard-with-rake" /> }
 ];
 
 const publicRoutes = [
