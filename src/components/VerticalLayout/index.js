@@ -65,7 +65,7 @@ class Layout extends Component {
     let currentage = this.capitalizeFirstLetter(this.props.location.pathname);
 
     document.title =
-      currentage + " | BB";
+      currentage + " | BO";
     if (this.props.leftSideBarTheme) {
       this.props.changeSidebarTheme(this.props.leftSideBarTheme);
     }
@@ -86,6 +86,7 @@ class Layout extends Component {
     }
   }
   toggleMenuCallback = () => {
+    console.log("this.props.leftSideBarType",this.props.leftSideBarType)
     if (this.props.leftSideBarType === "default") {
       this.props.changeSidebarType("condensed", this.state.isMobile);
     } else if (this.props.leftSideBarType === "condensed") {
