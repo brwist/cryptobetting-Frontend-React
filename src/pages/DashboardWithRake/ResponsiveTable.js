@@ -41,7 +41,7 @@ const ResponsiveTable = (props) => {
                                                             <td><span className="over-head">OVER</span></td>
                                                             {info.probabilities.map((proba, i) => (
                                                                 <React.Fragment key={i+"over"}>
-                                                                <td><span className="over ">{((1/(proba.over))*(1-props.tableData.data.rake_over)).toFixed(2)}</span></td>
+                                                                <td><span className="over ">{(proba.over).toFixed(2)}</span></td>
                                                                 </React.Fragment>
                                                             ))}
                                                         </tr>
@@ -58,7 +58,7 @@ const ResponsiveTable = (props) => {
                                                                     ?
                                                                     <td><span className="under">99</span></td>
                                                                     :
-                                                                    <td><span className="under">{((1/(proba.under))*(1-props.tableData.data.rake_under)).toFixed(2)}</span></td>
+                                                                    <td><span className="under">{proba.under.toFixed(2)}</span></td>
                                                                 }
                                                                  </React.Fragment>
                                                             ))}

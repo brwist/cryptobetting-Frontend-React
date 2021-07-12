@@ -93,7 +93,7 @@ class SidebarContent extends Component {
                         <ul className="metismenu list-unstyled" id="side-menu">
                             {/* <li className="menu-title">{this.props.t('Menu')}</li> */}
 
-                            <li>
+                            {/* <li>
                                 <Link to="/dashboard" className="waves-effect">
                                     <i className="ri-dashboard-line"></i>
                                     <span className="ml-1">{this.props.t('Dashboard')}</span>
@@ -105,12 +105,19 @@ class SidebarContent extends Component {
                                     <i className="ri-dashboard-line"></i>
                                     <span className="ml-1">{this.props.t('Dashboard Decimal Odds')}</span>
                                 </Link>
-                            </li>
+                            </li> */}
 
                             <li>
                                 <Link to="/dashboard-with-rake" className="waves-effect">
                                     <i className="ri-dashboard-line"></i>
                                     <span className="ml-1">{this.props.t('Dashboard With Rake')}</span>
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/chart" className="waves-effect">
+                                    <i className="ri-dashboard-line"></i>
+                                    <span className="ml-1">{this.props.t('Trading View Chart')}</span>
                                 </Link>
                             </li>
 

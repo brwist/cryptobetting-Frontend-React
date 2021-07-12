@@ -1,15 +1,15 @@
 import { SET_PRICE } from "./reducer";
 import { SET_DATA } from "./reducer";
 
-export const setSocketData = (price,rake_over,rake_under,expiries) => {
+export const setSocketData = (price,expiries) => {
     return (dispatch, getState) => {
         const store = getState();
         let tableData = store.tableData.tableData
-        if(rake_over===undefined)
+        if(expiries===undefined)
         {
             tableData = {
                 ...tableData,
-                price,rake_over,rake_under,expiries
+                price,expiries
                 
             }
             dispatch({ type: SET_PRICE, payload: tableData })
@@ -19,7 +19,7 @@ export const setSocketData = (price,rake_over,rake_under,expiries) => {
         {
             tableData = {
                 ...tableData,
-                price,rake_over,rake_under,expiries
+                price,expiries
                 
             }
             dispatch({ type: SET_DATA, payload: tableData })
