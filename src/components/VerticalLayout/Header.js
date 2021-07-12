@@ -53,7 +53,7 @@ const Header = (props) =>{
           let res = JSON.parse(e.data);
           if("price" in res);
          {
-            dispatch(setSocketData(res.price,res.rake_over,res.rake_under,res.expiries))
+            dispatch(setSocketData(res.price,res.expiries))
          }
         
         //   setMarkPrice(res.mark_price)
@@ -118,19 +118,19 @@ const Header = (props) =>{
                       <div className="col-md-6">
                       <div className="navbar-brand-box">
                             <Link to="#" className="logo logo-dark font-weight-bold">
-                                <span className="logo-sm">BB
+                                <span className="logo-sm">BO
                                     {/* <img src={logosmdark} alt="" height="22"/> */}
                                 </span>
-                                <span className="logo-lg">BB
+                                <span className="logo-lg">BO
                                     {/* <img src={logodark} alt="" height="20"/> */}
                                 </span>
                             </Link>
 
                             <Link to="#" className="logo logo-light">
-                                <span className="logo-sm">BB
+                                <span className="logo-sm">BO
                                     {/* <img src={logosmlight} alt="" height="22"/> */}
                                 </span>
-                                <span className="logo-lg">BB
+                                <span className="logo-lg">BO
                                     {/* <img src={logolight} alt="" height="20"/> */}
                                 </span>
                             </Link>
