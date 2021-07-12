@@ -1,9 +1,9 @@
-import React, { useEffect,useRef } from "react";
+import React, { useEffect,useRef,useState} from "react";
 import { connect, useDispatch } from "react-redux";
 import { numberWithCommas } from "../../utils/numberWithCommas"
 import { Link } from "react-router-dom";
 import { setSocketData } from "../../store/tableData/actions";
-
+import {Button} from 'reactstrap'
 // Import menuDropdown
 import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown";
 import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown";
@@ -27,13 +27,23 @@ const usePrevious=(value) =>{
 }
 
 const Header = (props) =>{
+  const [isToggled,setIsToggled]=useState(false);
+
   const {price} = props.tableData;
   const prevAmount = usePrevious(price);
   // localStorage.setItem("mark_price_prev",props.tableData.data.mark_price)
-   const toggleMenu = () => {
+  const toggleMenu = () => {
+    if(isToggled===false || isToggled===undefined)
+    {
+      setIsToggled(true)
+    }
+    else
+    {
+      setIsToggled(false)
+    }
     props.toggleMenuCallback();
-  }
 
+  }
   /**
    * Toggles the sidebar
    */
@@ -113,42 +123,35 @@ const Header = (props) =>{
     return (
       <React.Fragment>
             <header id="page-topbar">
-                <div className="navbar-header">
-                  <div className="row" style={{"width":"100%"}}>
-                      <div className="col-md-6">
-                      <div className="navbar-brand-box">
-                            <Link to="#" className="logo logo-dark font-weight-bold">
-                                <span className="logo-sm">BO
-                                    {/* <img src={logosmdark} alt="" height="22"/> */}
-                                </span>
-                                <span className="logo-lg">BO
-                                    {/* <img src={logodark} alt="" height="20"/> */}
-                                </span>
-                            </Link>
-
-                            <Link to="#" className="logo logo-light">
-                                <span className="logo-sm">BO
-                                    {/* <img src={logosmlight} alt="" height="22"/> */}
-                                </span>
-                                <span className="logo-lg">BO
-                                    {/* <img src={logolight} alt="" height="20"/> */}
-                                </span>
+            <div className="navbar-header">
+                    <div className="d-flex">
+                    <div className="navbar-brand-box" style={{"background": "#28253b"}}>
+                        
+                            <Link to="/" className="logo logo-light">
+                                 <span className="logo-sm-i">BO</span>
                             </Link>
                         </div>
-                      </div>
-                      <div className="col-md-6 text-right">
-                            <Link to="#" className="logo font-weight-bold ">
-                                <span className="btcPrice">BTC PRICE :  {" "}
+
+                        <Button size="sm" color="none" type="button" onClick={toggleMenu} className="px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                            <i className="ri-menu-2-line align-middle"></i>
+                        </Button>     
+                    </div>
+                    
+                    <div className="d-flex">
+                      <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
                                     prevAmount < props.tableData.price ?
                                     <span className="text-success">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
                                     <span className="text-danger">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
                                 "-"}
                                 </span>
-                               </Link>
-                      </div>
+                        {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
                   </div>
-                </div>
+        
+                   
+                    
+                  </div>
+            
             </header>
       </React.Fragment>
     );

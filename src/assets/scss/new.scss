@@ -118,3 +118,18 @@ body {
 
 }
 }
+@media (max-width: 900px) {
+    .page-content {
+        padding: calc(50px + 24px) calc(24px / 2) 60px calc(24px / 2);
+    }
+    // .mt-neg{
+    //     margin-top: -13vh;
+    // }
+    .navbar-header {
+       
+        margin: 0;
+        height: auto;
+        padding: 0;
+    }
+    }
+
