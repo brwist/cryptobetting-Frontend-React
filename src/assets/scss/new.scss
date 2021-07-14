@@ -112,6 +112,11 @@ body {
     font-weight: 700;
 
 }
+.fixture th, .fixture td {
+    padding: 0.5rem;
+    color: #fff;
+}
+
 @media (max-width: 600px) {
 .card-title {
     font-size: 14px;

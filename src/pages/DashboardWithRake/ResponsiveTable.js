@@ -22,7 +22,7 @@ const ResponsiveTable = (props) => {
                                 <Col xs={12} key={index}>
                                 <Card>
                                     <CardBody>
-                                    <h4 className="card-title text-center py-3 h2">Expiry Time : {expiryTimeToLocaleString(info.expiry*1000)}{" "}<span className="float-right mr-2">({calcTimeDifference(Math.abs(new Date(info.expiry*1000) - new Date()))} to expiration){" "}{" "}</span></h4>
+                                    <h4 className="card-title text-center py-3 h2">Expiry Time : {expiryTimeToLocaleString(props.tableData.data.expTime*1000)}{" "}<span className="float-right mr-2">({calcTimeDifference(Math.abs(new Date(props.tableData.data.expTime*1000) - new Date()))} to expiration){" "}{" "}</span></h4>
                                         <div className="table-rep-plugin">
                                             <div className="table-responsive mb-0" data-pattern="priority-columns">
                                                 <Table id="tech-companies-1" responsive>
