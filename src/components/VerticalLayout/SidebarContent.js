@@ -121,6 +121,13 @@ class SidebarContent extends Component {
                                 </Link>
                             </li>
 
+                            <li>
+                                <Link to="/fixtures" className="waves-effect">
+                                    <i className="ri-calendar-2-line"></i>
+                                    <span className="ml-1">{this.props.t('Fixtures')}</span>
+                                </Link>
+                            </li>
+
                             
                         </ul>
                     </div>

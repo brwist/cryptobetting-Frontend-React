@@ -63,7 +63,7 @@ const Header = (props) =>{
           let res = JSON.parse(e.data);
           if("price" in res);
          {
-            dispatch(setSocketData(res.price,res.expiries))
+            dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
          }
         
         //   setMarkPrice(res.mark_price)
