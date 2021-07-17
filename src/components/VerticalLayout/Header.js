@@ -42,7 +42,6 @@ const Header = (props) =>{
       setIsToggled(false)
     }
     props.toggleMenuCallback();
-
   }
   /**
    * Toggles the sidebar
@@ -61,9 +60,13 @@ const Header = (props) =>{
         }
         ws.onmessage = function (e) {
           let res = JSON.parse(e.data);
-          if("price" in res);
+          if("price" in res)
          {
             dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
+         }
+         else
+         {
+          dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
          }
         
         //   setMarkPrice(res.mark_price)

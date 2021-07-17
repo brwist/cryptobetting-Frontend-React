@@ -9,7 +9,7 @@ export const setSocketData = (price,expiries,expTime) => {
         {
             tableData = {
                 ...tableData,
-                price,expiries,expTime
+                price
                 
             }
             dispatch({ type: SET_PRICE, payload: tableData })
