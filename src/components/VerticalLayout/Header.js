@@ -28,7 +28,6 @@ const usePrevious=(value) =>{
 
 const Header = (props) =>{
   const [isToggled,setIsToggled]=useState(false);
-
   const {price} = props.tableData;
   const prevAmount = usePrevious(price);
   // localStorage.setItem("mark_price_prev",props.tableData.data.mark_price)
@@ -60,13 +59,13 @@ const Header = (props) =>{
         }
         ws.onmessage = function (e) {
           let res = JSON.parse(e.data);
-          if("price" in res)
+          if(res.type==="type1")
          {
-            dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
+            dispatch(setSocketData(res.price))
          }
          else
          {
-          dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
+           dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
          }
         
         //   setMarkPrice(res.mark_price)
@@ -163,6 +162,6 @@ const Header = (props) =>{
 
 const mapStateToProps = (store) => ({
   layoutType: store.Layout,
-  tableData: store.tableData.price,
+  tableData: store.tableData.data,
 });
 export default connect(mapStateToProps, {toggleRightSidebar})(Header);

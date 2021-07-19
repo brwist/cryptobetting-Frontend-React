@@ -6,6 +6,7 @@ import {calcTimeDifference} from "../../utils/calcTimeDifference"
 import {expiryTimeToLocaleString} from "../../utils/expiryTimeToLocaleString"
 
 const ResponsiveTable = (props) => {
+
     let expiries;
     if(props.tableData.data.expiries!==undefined)
     expiries= props.tableData.data.expiries;

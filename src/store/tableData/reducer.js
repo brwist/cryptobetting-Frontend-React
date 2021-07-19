@@ -1,8 +1,7 @@
 export const SET_DATA = 'setData'
-export const SET_PRICE = 'setPrice'
 
 const initialState = {
-    data: {},price:''
+    data: {}
 }
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -11,11 +10,6 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 data: action.payload
             };
-        case SET_PRICE:
-                return {
-                    ...state,
-                    price: action.payload
-                };
     }
     return state;
 }
