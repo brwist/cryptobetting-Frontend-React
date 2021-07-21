@@ -19,6 +19,7 @@ const Fixture =() => {
         
     }
     useEffect(() => {
+        getFixtures()
         const fetch = setInterval(() => {
           //fetch
           getFixtures()
