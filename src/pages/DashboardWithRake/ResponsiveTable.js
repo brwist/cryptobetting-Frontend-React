@@ -6,7 +6,7 @@ import {calcTimeDifference} from "../../utils/calcTimeDifference"
 import {expiryTimeToLocaleString} from "../../utils/expiryTimeToLocaleString"
 
 const ResponsiveTable = (props) => {
-
+    console.log("props",props)
     let expiries;
     if(props.tableData.data.expiries!==undefined)
     expiries= props.tableData.data.expiries;
@@ -24,6 +24,7 @@ const ResponsiveTable = (props) => {
                                 <Card>
                                     <CardBody>
                                     {/* <h4 className="card-title text-center py-3 h2">Expiry Time : {expiryTimeToLocaleString(props.tableData.data.expTime)}{" "}<span className="float-right mr-2">({calcTimeDifference(Math.abs(new Date(props.tableData.data.expTime) - new Date()))} to expiration){" "}{" "}</span></h4> */}
+                                    <h4 className="card-title text-center py-3 h2">Fixture ID : {info.id}</h4>
                                         <div className="table-rep-plugin">
                                             <div className="table-responsive mb-0" data-pattern="priority-columns">
                                                 <Table id="tech-companies-1" responsive>

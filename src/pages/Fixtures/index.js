@@ -4,8 +4,7 @@ import axios from 'axios'
 const Fixture =() => {
     const [data,setData]=useState([]);
     const [loaded,setLoaded]=useState(false);
-
-    useEffect(() => {
+    const getFixtures = () => {
         axios.get('http://18.183.29.9:9000/api/fixtures',{
             headers:{
                 'Content-Type': 'application/json',
@@ -18,8 +17,14 @@ const Fixture =() => {
                // console.log("error",error)
            })    
         
-    }, [])
-
+    }
+    useEffect(() => {
+        const fetch = setInterval(() => {
+          //fetch
+          getFixtures()
+        }, 30000)
+        return () => clearInterval(fetch);
+      }, [])
         return (
             <React.Fragment>
                 <div className="page-content">
@@ -36,6 +41,7 @@ const Fixture =() => {
                                                     <th >Start Time</th>
                                                     <th >Market End Time</th>
                                                     <th >Expiry time</th>
+                                                    <th >Price</th>
                                                     <th >Status</th>
                                                 </tr>
                                             </thead>
@@ -47,16 +53,20 @@ const Fixture =() => {
                                                     <td>{new Date(info.startTime).toLocaleString()}</td>
                                                     <td>{new Date(info.marketEndTime).toLocaleString()}</td>
                                                     <td>{new Date(info.endTime).toLocaleString()}</td>
+                                                    { info.price == null ?
+                                                         <td>-</td> :
+                                                         <td>${info.price}</td>  
+                                                    }   
                                                     { info.status == null ?
                                                          <td>-</td> :
                                                          <td>{info.status}</td>  
-                                                    }   
-                                                                  
+                                                    }                        
                                                 </tr>
                                                 ))
                                                 :
                                                 <tr>
                                                     <th>-</th>
+                                                    <td>-</td>
                                                     <td>-</td>
                                                     <td>-</td>
                                                     <td>-</td>
@@ -67,9 +77,7 @@ const Fixture =() => {
                                         </Table>
                                     </div>
                             </Col>
-
                         </Row>
-
                     </Container> 
                 </div>
             </React.Fragment>
