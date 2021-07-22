@@ -2,8 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card, CardBody, Container, Table } from "reactstrap";
 import {numberWithCommas} from "../../utils/numberWithCommas"
-import {calcTimeDifference} from "../../utils/calcTimeDifference"
-import {expiryTimeToLocaleString} from "../../utils/expiryTimeToLocaleString"
 
 const ResponsiveTable = (props) => {
     let expiries;
