@@ -46,13 +46,16 @@ const Fixture =() => {
         
     }
     useEffect(() => {
-        getFixtures()
+        getFixtures();
+      }, [])
+    useEffect(() => {
         const fetch = setInterval(() => {
           //fetch
           getFixtures(toFilterGlobal,fromFilterGlobal)
         }, 30000)
         return () => clearInterval(fetch);
       }, [toFilterGlobal,fromFilterGlobal])
+
         return (
             <React.Fragment>
                 <div className="page-content">
