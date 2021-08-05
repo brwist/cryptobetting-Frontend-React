@@ -7,7 +7,9 @@ const Chart =() => {
     let theme = params.get('theme') // 123 
     let height = params.get('height')
     let width = params.get('width')
-
+    let hide_top_toolbar=params.get('hide_top_toolbar');
+    let allow_symbol_change=params.get('allow_symbol_change')
+    let hide_legend=params.get('hide_legend')
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -24,13 +26,13 @@ const Chart =() => {
             "locale": "en",
             "toolbar_bg": "#f1f3f6",
             "enable_publishing": false,
-            "allow_symbol_change": false,
+            "allow_symbol_change": allow_symbol_change,
             "container_id": "tradingview_f46e4",
-            "hide_top_toolbar":true
+            "hide_top_toolbar":hide_top_toolbar,
+            "hide_legend": hide_legend,
           }
         );
-      }, [])
-    
+      }, [])    
         return (
             <React.Fragment>
                 <div className="page-content">
@@ -38,7 +40,6 @@ const Chart =() => {
                         
                         <Row className="py-4">
                             <Col xl={12}>
-                                <h4 className="py-4">Trading View Chart</h4>
                                 <div id="tradingview_f46e4"></div>
                             </Col>
 
