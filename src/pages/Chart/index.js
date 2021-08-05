@@ -19,7 +19,7 @@ const Chart =() => {
             "width":width,
             "height": height,
             "symbol": 'BINANCE:BTCUSDT',
-            "interval": "15",
+            "interval": "1",
             "timezone": "America/New_York",
             "theme": theme,
             "style": "1",
