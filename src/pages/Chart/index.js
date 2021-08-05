@@ -38,7 +38,7 @@ const Chart =() => {
                         
                         <Row className="py-4">
                             <Col xl={12}>
-                                <h4 className="py-4">Trading View Chart {theme}</h4>
+                                <h4 className="py-4">Trading View Chart</h4>
                                 <div id="tradingview_f46e4"></div>
                             </Col>
 
