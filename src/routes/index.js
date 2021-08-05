@@ -20,7 +20,7 @@ const authProtectedRoutes = [
 	// { path: "/dashboard", component: Dashboard },
 	// { path: "/dashboard-decimal-odds", component: DashboardDecimalOdds },
 	{ path: "/dashboard-with-rake", component: DashboardWithRake },
-	// { path: "/chart", component: TradingViewChart },
+	{ path: "/tv-chart", component: TradingViewChart },
 	{ path: "/fixtures", component: Fixtures },
 
 	// this route should be at the end of all other routes
