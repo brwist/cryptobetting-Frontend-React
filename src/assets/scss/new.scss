@@ -22,6 +22,10 @@ body {
 .logo{
     color:#fff !important
 }
+#tradingview_f46e4
+{
+    position: absolute !important;
+}
 
 .card {
     position: relative;
@@ -123,6 +127,8 @@ body {
 
 }
 }
+
+
 @media (max-width: 900px) {
     .page-content {
         padding: calc(50px + 24px) calc(24px / 2) 60px calc(24px / 2);
