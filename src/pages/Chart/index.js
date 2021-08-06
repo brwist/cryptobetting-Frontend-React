@@ -98,9 +98,15 @@ const Chart =(props) => {
         return (
             <React.Fragment>
                 <div className="page-content">
-                    <Container fluid>
-                         <div className="text-right">
-                      <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
+                    <Container>
+      
+                        <Row className="py-4">
+                        <Col md={1}>
+                          
+                          </Col>
+                            <Col xl={9}>
+                            <div className="text-left py-2">
+                            <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
                                     prevAmount < props.tableData.price ?
                                     <span className="text-success">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
@@ -108,14 +114,11 @@ const Chart =(props) => {
                                 "-"}
                                 </span>
                         {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
-                  </div>
-        
-                        <Row className="py-4">
-                            <Col xl={12}>
+                      </div>
                                 <div id="tradingview_f46e4"></div>
                             </Col>
 
-                            <Col xl={4}>
+                            <Col md={1}>
 
                             </Col>
                         </Row>
