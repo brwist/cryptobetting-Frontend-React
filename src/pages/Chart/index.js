@@ -1,7 +1,16 @@
-import React, { useState,useEffect} from "react";
+import React, { useEffect,useRef,useState} from "react";
 import { Container, Row, Col } from "reactstrap";
-
-const Chart =() => {
+import { connect, useDispatch } from "react-redux";
+import { numberWithCommas } from "../../utils/numberWithCommas"
+import { setSocketData } from "../../store/tableData/actions";
+const Chart =(props) => {
+    const usePrevious=(value) =>{
+        const ref = useRef();
+        useEffect(() => {
+          ref.current = value;
+        });
+        return ref.current;
+      }
     // const { theme } = useParams();
     const params = new URLSearchParams(window.location.search) // id=123
     let theme = params.get('theme') // 123 
@@ -33,11 +42,74 @@ const Chart =() => {
           }
         );
       }, [])    
+      const [isToggled,setIsToggled]=useState(false);
+      const {price} = props.tableData;
+      const prevAmount = usePrevious(price);
+      
+      const dispatch = useDispatch();
+      const wsConnect = (ws) => {
+          ws.onopen = function () {
+    
+              ws.send(JSON.stringify({
+                "token": "1"
+              }))
+    
+            }
+            ws.onmessage = function (e) {
+              let res = JSON.parse(e.data);
+              if(res.type==="type1")
+             {
+                dispatch(setSocketData(res.price))
+             }
+             else
+             {
+               dispatch(setSocketData(res.price,res.fixtures,res.timestamp))
+             }
+            
+            //   setMarkPrice(res.mark_price)
+            }
+            ws.onclose = function () {
+                console.log("common ws closed.Reconnecting....");
+                wsConnect(ws)
+              };
+              heartbeat(ws);
+    
+      }
+      const heartbeat = (ws) => {
+        if (!ws) return;
+        if (ws.readyState !== 1) return;
+        ws.send("heartbeat");
+        setTimeout(heartbeat, 1000);
+      }
+      useEffect(() => {
+        
+          let ws = new WebSocket("ws://18.183.29.9:8006");
+          wsConnect(ws)
+    
+          return () => {
+              ws.onclose = function () {
+                  console.log("common ws closed.Reconnecting....");
+                  wsConnect(ws)
+                };
+            }
+      }, [])
+
+
         return (
             <React.Fragment>
                 <div className="page-content">
                     <Container fluid>
-                        
+                         <div className="text-right">
+                      <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
+                                {props.tableData.price ? 
+                                    prevAmount < props.tableData.price ?
+                                    <span className="text-success">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
+                                    <span className="text-danger">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
+                                "-"}
+                                </span>
+                        {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
+                  </div>
+        
                         <Row className="py-4">
                             <Col xl={12}>
                                 <div id="tradingview_f46e4"></div>
@@ -55,4 +127,8 @@ const Chart =() => {
     
 }
 
-export default Chart;
+
+const mapStateToProps = (store) => ({
+    tableData: store.tableData.data,
+  });
+  export default connect(mapStateToProps, {})(Chart);
