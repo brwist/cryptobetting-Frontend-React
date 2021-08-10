@@ -4,6 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { numberWithCommas } from "../../utils/numberWithCommas"
 import { setSocketData } from "../../store/tableData/actions";
 const Chart =(props) => {
+
     const usePrevious=(value) =>{
         const ref = useRef();
         useEffect(() => {
@@ -18,7 +19,7 @@ const Chart =(props) => {
     let width = params.get('width')
     let hide_top_toolbar=params.get('hide_top_toolbar');
     let allow_symbol_change=params.get('allow_symbol_change')
-    let hide_legend=params.get('hide_legend')
+    let hide_legend=params.get('hide_legend');
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -96,12 +97,12 @@ const Chart =(props) => {
 
 
         return (
-            <React.Fragment>
+            <React.Fragment >
                 <div className="page-content p-0 m-0">
-                    <Container fluid={true}>
+                    <Container fluid={true} className="p-0">
       
-                        <Row className="py-4">
-                            <Col xl={12}>
+                        <Row className="py-0">
+                            <Col xl={12} >
                             <div className="text-left py-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
