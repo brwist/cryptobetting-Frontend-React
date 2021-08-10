@@ -20,6 +20,7 @@ const Chart =(props) => {
     let hide_top_toolbar=params.get('hide_top_toolbar');
     let allow_symbol_change=params.get('allow_symbol_change')
     let hide_legend=params.get('hide_legend');
+    let padding=params.get('padding');
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -94,14 +95,15 @@ const Chart =(props) => {
                 };
             }
       }, [])
+      console.log("padding",padding)
 
 
         return (
             <React.Fragment >
-                <div className="page-content p-0 m-0">
+                <div className="page-content p-0 m-0" >
                     <Container fluid={true} className="p-0">
       
-                        <Row className="py-0">
+                        <Row className="py-0" style={{"padding":padding+'rem'}}>
                             <Col xl={12} >
                             <div className="text-left py-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
