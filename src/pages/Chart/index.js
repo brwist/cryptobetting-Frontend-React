@@ -104,7 +104,7 @@ const Chart =(props) => {
       
                         <Row className="" >
                             <Col xl={12}  >
-                            <div className="text-left py-2 pt-0">
+                            <div className="text-left pb-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
                                     prevAmount < props.tableData.price ?
