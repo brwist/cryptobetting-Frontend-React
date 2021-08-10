@@ -95,7 +95,6 @@ const Chart =(props) => {
                 };
             }
       }, [])
-      console.log("padding",padding)
 
 
         return (
