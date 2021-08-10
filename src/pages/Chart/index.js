@@ -100,10 +100,10 @@ const Chart =(props) => {
         return (
             <React.Fragment >
                 <div className="page-content p-0 m-0" >
-                    <Container fluid={true} >
+                    <Container fluid={true} style={{"padding":padding+'px'}}>
       
                         <Row className="" >
-                            <Col xl={12} style={{"padding":padding+'px'}} >
+                            <Col xl={12}  >
                             <div className="text-left py-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
