@@ -103,7 +103,7 @@ const Chart =(props) => {
                     <Container fluid={true} >
       
                         <Row className="" >
-                            <Col xl={12} style={{"padding":padding+'rem'}} >
+                            <Col xl={12} style={{"padding":padding+'px'}} >
                             <div className="text-left py-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
