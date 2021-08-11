@@ -97,8 +97,6 @@ const Chart =(props) => {
             }
       }, [])
 
-      console.log("show_price",show_price)
-
         return (
             <React.Fragment >
                 <div className="page-content p-0 m-0" >
