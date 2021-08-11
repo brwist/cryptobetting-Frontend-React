@@ -21,6 +21,7 @@ const Chart =(props) => {
     let allow_symbol_change=params.get('allow_symbol_change')
     let hide_legend=params.get('hide_legend');
     let padding=params.get('padding');
+    let show_price=params.get('show_price');
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -96,6 +97,7 @@ const Chart =(props) => {
             }
       }, [])
 
+      console.log("show_price",show_price)
 
         return (
             <React.Fragment >
@@ -104,6 +106,7 @@ const Chart =(props) => {
       
                         <Row className="" >
                             <Col xl={12}  >
+                            {show_price=="true" ? 
                             <div className="text-left pb-2 pt-0">
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
@@ -113,7 +116,7 @@ const Chart =(props) => {
                                 "-"}
                                 </span>
                               {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
-                            </div>
+                            </div>: null}
                             <div id="tradingview_f46e4"></div>
                             </Col>
                         </Row>
