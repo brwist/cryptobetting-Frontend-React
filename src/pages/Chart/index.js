@@ -109,8 +109,8 @@ const Chart =(props) => {
                             <span className="btcPrice w-md btn btn-primary button-login font-weight-bold">BTC PRICE :  {" "}
                                 {props.tableData.price ? 
                                     prevAmount < props.tableData.price ?
-                                    <span className="text-success">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
-                                    <span className="text-danger">{numberWithCommas(parseFloat(props.tableData.price).toFixed(3))}</span>:
+                                    <span className="text-success">{numberWithCommas(parseFloat(props.tableData.price).toFixed(2))}</span>:
+                                    <span className="text-danger">{numberWithCommas(parseFloat(props.tableData.price).toFixed(2))}</span>:
                                 "-"}
                                 </span>
                               {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
