@@ -8,6 +8,7 @@ import {Button} from 'reactstrap'
 import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown";
 import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown";
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
+import {WebSocketUrl} from "../../config"
 
 //Import i18n
 import { withNamespaces } from "react-i18next";
@@ -85,7 +86,7 @@ const Header = (props) =>{
   }
   useEffect(() => {
     
-      let ws = new WebSocket("ws://18.183.29.9:8006");
+      let ws = new WebSocket(WebSocketUrl);
       wsConnect(ws)
 
       return () => {

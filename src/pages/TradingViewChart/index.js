@@ -19,7 +19,7 @@ const TradingViewChart =() => {
             "toolbar_bg": "#f1f3f6",
             "enable_publishing": false,
             "allow_symbol_change": true,
-            "container_id": "tradingview_f46e4"
+            "container_id": "tradingview"
           }
         );
       }, [])
@@ -32,7 +32,7 @@ const TradingViewChart =() => {
                         <Row className="py-4">
                             <Col xl={12}>
                                 <h4 className="py-4">Trading View Chart</h4>
-                                <div id="tradingview_f46e4"></div>
+                                <div id="tradingview"></div>
                             </Col>
 
                             <Col xl={4}>

@@ -2,6 +2,7 @@ import React, { useState,useEffect} from "react";
 import { Container, Row, Col,Table,Button,Label } from "reactstrap";
 import { AvField, AvForm} from 'availity-reactstrap-validation';
 import axios from 'axios'
+import {FixturesUrl} from "../../config"
 
 const Fixture =() => {
     const [data,setData]=useState([]);
@@ -13,13 +14,13 @@ const Fixture =() => {
     const getFixtures = (toFilter,fromFilter) => {
         let url=""
         if((toFilter===undefined && fromFilter===undefined) || (toFilter==="" && fromFilter===""))
-        url=`http://18.183.29.9:9000/api/fixtures`
+        url=FixturesUrl
         else if(fromFilter===undefined || fromFilter==="" )
-        url=`http://18.183.29.9:9000/api/fixtures?to=${toFilter}`
+        url=`${FixturesUrl}to=${toFilter}`
         else if(toFilter===undefined || toFilter==="" )
-        url=`http://18.183.29.9:9000/api/fixtures?from=${fromFilter}`
+        url=`${FixturesUrl}?from=${fromFilter}`
         else
-        url=`http://18.183.29.9:9000/api/fixtures?from=${fromFilter}&to=${toFilter}`
+        url=`${FixturesUrl}?from=${fromFilter}&to=${toFilter}`
 
         axios.get(url,{
             headers:{

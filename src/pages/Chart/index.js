@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { connect, useDispatch } from "react-redux";
 import { numberWithCommas } from "../../utils/numberWithCommas"
 import { setSocketData } from "../../store/tableData/actions";
+import {WebSocketUrl} from "../../config"
 const Chart =(props) => {
 
     const usePrevious=(value) =>{
@@ -51,14 +52,17 @@ const Chart =(props) => {
       
       const dispatch = useDispatch();
       const wsConnect = (ws) => {
+        console.log("reconnected again.")
+
           ws.onopen = function () {
-    
+            console.log("reconnected again.")
               ws.send(JSON.stringify({
                 "token": "1"
               }))
     
             }
             ws.onmessage = function (e) {
+
               let res = JSON.parse(e.data);
               if(res.type==="type1")
              {
@@ -86,7 +90,7 @@ const Chart =(props) => {
       }
       useEffect(() => {
         
-          let ws = new WebSocket("ws://18.183.29.9:8006");
+          let ws = new WebSocket(WebSocketUrl);
           wsConnect(ws)
     
           return () => {
