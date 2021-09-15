@@ -23,6 +23,12 @@ const Chart =(props) => {
     let hide_legend=params.get('hide_legend');
     let padding=params.get('padding');
     let show_price=params.get('show_price');
+    console.log("theme",theme);
+    let backgroundTheme;
+    if(theme==null || theme=="dark")
+    backgroundTheme="";
+    else
+    backgroundTheme="#fff"
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -103,7 +109,7 @@ const Chart =(props) => {
 
         return (
             <React.Fragment >
-                <div className="page-content p-0 m-0" >
+                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme}}  >
                     <Container fluid={true} style={{"padding":padding+'px'}}>
       
                         <Row className="" >
@@ -119,7 +125,7 @@ const Chart =(props) => {
                                 </span>
                               {/* <Link to="/logout" size="sm" color="none" type="button" className="w-md waves-effect waves-light btn btn-primary button-login " id="vertical-menu-btn"> LOGOUT </Link> */}
                             </div>: null}
-                            <div id="tradingview_f46e4"></div>
+                            <div id="tradingview_f46e4" ></div>
                             </Col>
                         </Row>
 
