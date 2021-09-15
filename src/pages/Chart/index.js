@@ -23,7 +23,6 @@ const Chart =(props) => {
     let hide_legend=params.get('hide_legend');
     let padding=params.get('padding');
     let show_price=params.get('show_price');
-    console.log("height",height);
     let backgroundTheme;
     if(theme==null || theme=="dark")
     backgroundTheme="";
