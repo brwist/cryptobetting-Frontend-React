@@ -1,4 +1,5 @@
-export const FixturesUrl="http://18.183.29.9:9000/api/fixtures"
+export const FixturesUrl="https://cryptobettingapp.com/api/fixtures"
 
 
-export const WebSocketUrl="ws://18.183.29.9:8006"
+export const WebSocketUrl="wss:/cryptobettingapp.com/ws"
+
