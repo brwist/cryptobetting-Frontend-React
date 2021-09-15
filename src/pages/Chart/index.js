@@ -23,16 +23,20 @@ const Chart =(props) => {
     let hide_legend=params.get('hide_legend');
     let padding=params.get('padding');
     let show_price=params.get('show_price');
-    console.log("theme",theme);
+    console.log("height",height);
     let backgroundTheme;
     if(theme==null || theme=="dark")
     backgroundTheme="";
     else
     backgroundTheme="#fff";
     let heightFull;
-    heightFull = parseFloat(height.slice(0, -2)); 
-    heightFull=heightFull+30;
-    heightFull=heightFull+"px"
+    if(height!=null)
+    {
+      heightFull = parseFloat(height.slice(0, -2)); 
+      heightFull=heightFull+30;
+      heightFull=heightFull+"px"
+    }
+
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
