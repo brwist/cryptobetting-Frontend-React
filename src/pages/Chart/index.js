@@ -28,7 +28,11 @@ const Chart =(props) => {
     if(theme==null || theme=="dark")
     backgroundTheme="";
     else
-    backgroundTheme="#fff"
+    backgroundTheme="#fff";
+    let heightFull;
+    heightFull = parseFloat(height.slice(0, -2)); 
+    heightFull=heightFull+30;
+    heightFull=heightFull+"px"
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/tv.js'
@@ -109,7 +113,7 @@ const Chart =(props) => {
 
         return (
             <React.Fragment >
-                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme}}  >
+                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme,"height":heightFull}}  >
                     <Container fluid={true} style={{"padding":padding+'px'}}>
       
                         <Row className="" >
