@@ -24,9 +24,12 @@ const Chart =(props) => {
     let padding=params.get('padding');
     let show_price=params.get('show_price');
     let heightFull;
+    if(height!=null)
+    {
     heightFull = parseFloat(height.slice(0, -2)); 
     heightFull=heightFull+30;
     heightFull=heightFull+"px"
+    }
     let backgroundTheme;
     if(theme==null || theme=="dark")
     backgroundTheme="";
