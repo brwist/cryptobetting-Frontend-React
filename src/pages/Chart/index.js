@@ -23,7 +23,10 @@ const Chart =(props) => {
     let hide_legend=params.get('hide_legend');
     let padding=params.get('padding');
     let show_price=params.get('show_price');
-    console.log("theme",theme);
+    let heightFull;
+    heightFull = parseFloat(height.slice(0, -2)); 
+    heightFull=heightFull+30;
+    heightFull=heightFull+"px"
     let backgroundTheme;
     if(theme==null || theme=="dark")
     backgroundTheme="";
@@ -109,7 +112,7 @@ const Chart =(props) => {
 
         return (
             <React.Fragment >
-                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme}}  >
+                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme,"height":heightFull}}  >
                     <Container fluid={true} style={{"padding":padding+'px'}}>
       
                         <Row className="" >
