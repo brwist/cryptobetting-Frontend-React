@@ -32,7 +32,7 @@ const Chart =(props) => {
     if(height!=null)
     {
       heightFull = parseFloat(height.slice(0, -2)); 
-      heightFull=heightFull+30;
+      heightFull=heightFull-30;
       heightFull=heightFull+"px"
     }
 
@@ -43,7 +43,7 @@ const Chart =(props) => {
         script.innerHTML = new window.TradingView.widget(
           {
             "width":width,
-            "height": height,
+            "height": heightFull,
             "symbol": 'BINANCE:BTCUSDT',
             "interval": "1",
             "timezone": "America/New_York",
@@ -116,7 +116,7 @@ const Chart =(props) => {
 
         return (
             <React.Fragment >
-                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme,"height":heightFull}}  >
+                <div className="page-content p-0 m-0" style={{"backgroundColor":backgroundTheme,"height":height}}  >
                     <Container fluid={true} style={{"padding":padding+'px'}}>
       
                         <Row className="" >
