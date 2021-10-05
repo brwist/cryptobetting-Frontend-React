@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Authentication related pages
-// import Login from "../pages/Authentication/Login";
+import Login from "../pages/Authentication/Login";
 // import Logout from "../pages/Authentication/Logout";
 // import Register from "../pages/Authentication/Register";
 // import ForgetPwd from "../pages/Authentication/ForgetPassword";
@@ -24,12 +24,14 @@ const authProtectedRoutes = [
 	{ path: "/fixtures", component: Fixtures },
 	
 	// this route should be at the end of all other routes
-	{ path: "/", exact: true, component: () => <Redirect to="/dashboard-with-rake" /> }
+	{ path: "/", exact: true, component: () => <Redirect to="/login" /> }
 ];
 
 const publicRoutes = [
 	// { path: "/logout", component: Logout },
 	{ path:"/chart/", component: Chart },
+	{ path:"/login/", component: Login },
+
 	// { path: "/register", component: Register },
 ];
 
