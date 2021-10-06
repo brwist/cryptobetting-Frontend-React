@@ -40,7 +40,7 @@ const ResponsiveTable = (props) => {
                                                             <td><span className="over-head">OVER</span></td>
                                                             {info.probabilities.map((proba, i) => (
                                                                 <React.Fragment key={i+"over"}>
-                                                                <td><span className="over ">{(0.07/proba.over).toFixed(2)}</span></td>
+                                                                <td><span className="over ">{(0.97/proba.over).toFixed(2)}</span></td>
                                                                 </React.Fragment>
                                                             ))}
                                                         </tr>
@@ -49,7 +49,7 @@ const ResponsiveTable = (props) => {
                                                             {info.probabilities.map((proba, i) => (
                                                                  <React.Fragment key={i+"under"}>
                                                                 {
-                                                                    <td><span className="under ">{(0.07/proba.under).toFixed(2)}</span></td>
+                                                                    <td><span className="under ">{(0.97/proba.under).toFixed(2)}</span></td>
                                                                 }
                                                                  </React.Fragment>
                                                             ))}
