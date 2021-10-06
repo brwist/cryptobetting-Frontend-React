@@ -12,6 +12,7 @@ import Dashboard from "../pages/Dashboard/index";
 // Pages Calendar
 import DashboardDecimalOdds from "../pages/DashboardDecimalOdds/index";
 import DashboardWithRake from "../pages/DashboardWithRake/index";
+import DashboardWithProbabilities from "../pages/DashboardWithProbabilities/index";
 import TradingViewChart from "../pages/TradingViewChart/index"
 import Fixtures from "../pages/Fixtures/index"
 import Chart from "../pages/Chart/index"
@@ -20,6 +21,7 @@ const authProtectedRoutes = [
 	// { path: "/dashboard", component: Dashboard },
 	// { path: "/dashboard-decimal-odds", component: DashboardDecimalOdds },
 	{ path: "/dashboard-with-rake", component: DashboardWithRake },
+	{ path: "/dashboard-probabilities", component: DashboardWithProbabilities },
 	{ path: "/tv-chart", component: TradingViewChart },
 	{ path: "/fixtures", component: Fixtures },
 	
