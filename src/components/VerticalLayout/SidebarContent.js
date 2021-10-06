@@ -114,7 +114,7 @@ class SidebarContent extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/dashboard-with-probabilities" className="waves-effect">
+                                <Link to="/dashboard-probabilities" className="waves-effect">
                                     <i className="ri-dashboard-line"></i>
                                     <span className="ml-1">{this.props.t('Dashboard With Probabilities')}</span>
                                 </Link>
