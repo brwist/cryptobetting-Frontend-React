@@ -115,6 +115,13 @@ class SidebarContent extends Component {
                             </li>
 
                             <li>
+                                <Link to="/dashboard-probabilities" className="waves-effect">
+                                    <i className="ri-dashboard-line"></i>
+                                    <span className="ml-1">{this.props.t('Dashboard With Probabilities')}</span>
+                                </Link>
+                            </li>
+
+                            <li>
                                 <Link to="/tv-chart" className="waves-effect">
                                     <i className="ri-dashboard-line"></i>
                                     <span className="ml-1">{this.props.t('Trading View Chart')}</span>
