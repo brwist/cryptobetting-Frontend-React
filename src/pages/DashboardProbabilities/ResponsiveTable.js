@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Row, Col, Card, CardBody, Container, Table } from "reactstrap";
 import {numberWithCommas} from "../../utils/numberWithCommas"
+import {closestToOne} from "../../utils/closestToOne"
 
 const ResponsiveTable = (props) => {
     let expiries;
@@ -40,7 +41,13 @@ const ResponsiveTable = (props) => {
                                                             <td><span className="over-head">OVER</span></td>
                                                             {info.probabilities.map((proba, i) => (
                                                                 <React.Fragment key={i+"over"}>
-                                                                <td><span className="over ">{(0.97/proba.over).toFixed(2)}</span></td>
+                                                                <td><span className="over ">
+                                                                    {
+                                                                    
+                                                                    closestToOne(0.95/proba.over+0.99/proba.under,0.99/proba.over+0.95/proba.under) == (0.95/proba.over+0.99/proba.under) 
+                                                                    ? (0.95/proba.over).toFixed(2) : (0.99/proba.over).toFixed(2) 
+                                                                    }
+                                                                </span></td>
                                                                 </React.Fragment>
                                                             ))}
                                                         </tr>
@@ -49,7 +56,11 @@ const ResponsiveTable = (props) => {
                                                             {info.probabilities.map((proba, i) => (
                                                                  <React.Fragment key={i+"under"}>
                                                                 {
-                                                                    <td><span className="under ">{(0.97/proba.under).toFixed(2)}</span></td>
+                                                                    <td><span className="under ">
+                                                                        {
+                                                                             closestToOne(0.95/proba.over+0.99/proba.under,0.99/proba.over+0.95/proba.under)== (0.95/proba.over+0.99/proba.under)  ? (0.95/proba.under).toFixed(2) : (0.99/proba.under).toFixed(2) 
+                                                                        
+                                                                    }</span></td>
                                                                 }
                                                                  </React.Fragment>
                                                             ))}
